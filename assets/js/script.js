@@ -150,9 +150,9 @@ var editTask = function(taskId) {
     var taskType = taskSelected.querySelector("span.task-type").textContent;
     document.querySelector("input[name='task-name']").value = taskName;
     document.querySelector("select[name='task-type']").value = taskType;
-    document.querySelector("#save-task").textContent = "Save Task";
    
     formEl.setAttribute("data-task-id", taskId);
+    formEl.querySelector("#save-task").textContent = "Save Task";
 }
 
 var taskStatusChangeHandler = function(Event) {
@@ -173,7 +173,7 @@ var taskStatusChangeHandler = function(Event) {
         tasksInProgressEl.appendChild(taskSelected);
     }
 
-    else if (statusValue === "Completed") {
+    else if (statusValue === "completed") {
         tasksCompletedEl.appendChild(taskSelected);
     }
 };
@@ -181,4 +181,4 @@ var taskStatusChangeHandler = function(Event) {
 
 pageContentEl.addEventListener("click", taskButtonHandler);
 formEl.addEventListener("submit", taskFormHandler);
-pageContentEl.addEventListener("change", taskStatusChangehandler);
+pageContentEl.addEventListener("change", taskStatusChangeHandler);
